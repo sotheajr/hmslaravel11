@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-use Illuminate\Contracts\Auth\MustVerifyEmail;
+// use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -10,7 +10,7 @@ use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
 use Hash;
-use DB;
+// use DB;
 
 class User extends Authenticatable
 {
@@ -24,7 +24,17 @@ class User extends Authenticatable
     protected $table = 'users'; // Specify the table name if it's not pluralized
 
     protected $fillable = [
-        'last_login', // Ensure this is included
+        'user_id',
+        'name',
+        'email',
+        'password',
+        'provider_id',
+        'provider',
+        'avatar',
+        'role_name',
+        'status',
+        'join_date',
+        'last_login',
     ];
 
 
@@ -95,5 +105,6 @@ class User extends Authenticatable
             return redirect()->back();
         }
     }
-
+  
+     
 }

@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+// use Illuminate\Http\Request;
 use DB;
 
 class ExpenseReportsController extends Controller
@@ -44,7 +44,8 @@ class ExpenseReportsController extends Controller
     /** employee-reports page */
     public function employeeReportsIndex()
     {
-        return view('reports.employee-reports');
+        $employees = \App\Models\Employee::with(['department', 'designation'])->get();
+        return view('reports.employee-reports', compact('employees'));
     }
 
     /** Payslip Reports */
@@ -53,9 +54,10 @@ class ExpenseReportsController extends Controller
         return view('reports.payslipreports');
     }
 
-    /** Attendance Reports */
+   
     public function attendanceReports()
     {
-        return view('reports.attendance-reports');
+        $attendances = \App\Models\Attendance::with('employee')->get();
+        return view('reports.attendance-reports', compact('attendances'));
     }
 }

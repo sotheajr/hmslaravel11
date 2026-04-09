@@ -5,20 +5,18 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class BankInformation extends Model
+class ExperienceInformation extends Model
 {
     use HasFactory;
 
-    protected $table = 'bank_information';
+    protected $table = 'experience_information';
 
     protected $fillable = [
         'user_id',
-        'bank_name',
-        'bank_account_no',
-        'ifsc_code',
-        'pan_no',
+        'company_name',
+        'location',
+        'job_position',
+        'period_from',
+        'period_to',
     ];
-
-
-   
 }

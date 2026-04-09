@@ -18,7 +18,7 @@ class CreateProfileInformationTable extends Migration
             $table->string('name')->nullable();
             $table->string('user_id')->nullable();
             $table->string('email')->nullable();
-            $table->string('birth_date')->nullable();
+            $table->date('birth_date')->nullable();
             $table->string('gender')->nullable();
             $table->string('address')->nullable();
             $table->string('state')->nullable();

@@ -21,7 +21,7 @@
         <link rel="stylesheet" href="{{ URL::to('assets/css/select2.min.css') }}">
         <!-- Datetimepicker CSS -->
         <link rel="stylesheet" href="{{ URL::to('assets/css/bootstrap-datetimepicker.min.css') }}">
-
+           <link href='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.5/main.min.css' rel='stylesheet' />
 		<!-- Main CSS -->
         <link rel="stylesheet" href="{{ URL::to('assets/css/style.css') }}">
         {{-- message toastr --}}
@@ -52,6 +52,8 @@
 		<script src="{{ URL::to('assets/js/bootstrap-datetimepicker.min.js') }}"></script>
 		<!-- Custom JS -->
 		<script src="{{ URL::to('assets/js/app.js') }}"></script>
+        <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.5/main.min.js'></script>
+        
         @yield('script')
     </body>
 </html>

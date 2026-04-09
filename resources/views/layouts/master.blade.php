@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -63,8 +64,12 @@
 			<!-- Logo -->
 			<div class="header-left">
 				<a href="{{ route('home') }}" class="logo">
-					<img src="{{ URL::to('/assets/images/'. Auth::user()->avatar) }}" width="40" height="40" alt="">
-				</a>
+                @if(Auth::user()->provider == 'github' || Auth::user()->provider == 'google')
+               <img src="{{ Auth::user()->avatar }}" width="40" height="40" alt="Profile" style="border-radius: 50%;">
+               @else
+               <img src="{{ URL::to('/assets/images/'. (Auth::user()->avatar ?: 'default.png')) }}" width="40" height="40" alt="Profile" style="border-radius: 50%;">
+               @endif
+            </a>
 			</div>
 			<!-- /Logo -->
 			<a id="toggle_btn" href="javascript:void(0);">
@@ -301,9 +306,16 @@
 				<li class="nav-item dropdown has-arrow main-drop">
 					<a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
 						<span class="user-img">
-						<img src="{{ URL::to('/assets/images/'. Auth::user()->avatar) }}" alt="">
-						<span class="status online"></span></span>
-						<span>{{ Session::get('name') }}</span>
+    @if(Auth::user()->provider == 'github' || Auth::user()->provider == 'google')
+        
+        <img src="{{ Auth::user()->avatar }}" alt="{{ Auth::user()->name }}">
+    @else
+        
+        <img src="{{ URL::to('/assets/images/'. Auth::user()->avatar) }}" alt="{{ Auth::user()->name }}">
+    @endif
+    <span class="status online"></span>
+</span>
+						
 					</a>
 					<div class="dropdown-menu">
 						<a class="dropdown-item" href="{{ route('profile_user') }}">My Profile</a>
@@ -366,6 +378,8 @@
 	<script src="{{ URL::to('assets/js/jquery.validate.js') }}"></script>	
 	<!-- Custom JS -->
 	<script src="{{ URL::to('assets/js/app.js') }}"></script>
+	
+   
 	@yield('script')
 </body>
 </html>
