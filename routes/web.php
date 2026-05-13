@@ -78,10 +78,13 @@ Route::group(['namespace' => 'App\Http\Controllers\Auth'],function()
     });
 
     // ----------------------------- Forget Password --------------------------//
-    Route::controller(ForgotPasswordController::class)->group(function () {
-        Route::get('forget-password', 'getEmail')->name('forget-password');
-        Route::post('forget-password', 'postEmail')->name('forget-password');    
-    });
+   Route::controller(ForgotPasswordController::class)->group(function () {
+    
+    Route::get('forget-password', 'getEmail')->name('forget-password');
+
+    
+    Route::post('f-password', 'postEmail')->name('forget-password.submit');    
+});
 
     // ---------------------------- Reset Password ----------------------------//
     Route::controller(ResetPasswordController::class)->group(function () {
