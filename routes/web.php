@@ -346,7 +346,7 @@ Route::group(['namespace' => 'App\Http\Controllers'],function()
             Route::post('expenses/delete', 'deleteRecord')->name('expenses/delete');
             // ---------------------- Search expenses  ---------------//
             Route::get('expenses/search', 'searchRecord')->name('expenses/search');
-            Route::post('expenses/search', 'searchRecord')->name('expenses/search');
+           
         });
     });
     // ---------------------- Personal Information ----------------------//
