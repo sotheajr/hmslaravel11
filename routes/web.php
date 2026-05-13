@@ -68,7 +68,7 @@ Route::group(['namespace' => 'App\Http\Controllers\Auth'],function()
     Route::controller(LoginController::class)->group(function () {
         Route::get('/login', 'login')->name('login');
         Route::post('/login', 'authenticate');
-        Route::get('/logout', 'logout')->name('logout');
+        Route::get('/logout', 'logout');
     });
 
     // ------------------------------ Register ---------------------------------//
